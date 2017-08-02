@@ -56,6 +56,12 @@ try:
 
         # Step: Update ECS Service
         h1("Step: Update ECS Service")
+
+        # test code
+        h1("%s" % args.cluster_name)
+        h1("%s" % args.service_name)
+        h1("%s" % task_definition_arn)
+
         response = ecs.update_service(cluster=args.cluster_name, service=args.service_name, taskDefinition=task_definition_arn)
         running_count = (response.get('services')[0]).get('runningCount')
         success("Updating service '%s' with task definition '%s' succeeded" % (args.service_name, task_definition_arn))
